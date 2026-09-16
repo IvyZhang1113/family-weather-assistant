@@ -1,0 +1,13 @@
+iPhone icon cache fix
+
+Copy ALL files/folders in this package into the repository and replace when asked.
+Then:
+1. GitHub Desktop -> Summary: Fix iPhone PWA icon cache
+2. Commit to main
+3. Push origin
+4. Wait about 1-3 minutes for GitHub Pages
+5. Delete the old Home Screen app from iPhone
+6. Open the website in Safari
+7. Add to Home Screen again
+
+The icon, manifest, and favicon now use new filenames, preventing iOS from reusing the old icon URL.
