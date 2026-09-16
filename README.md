@@ -1,22 +1,19 @@
 # Family Weather
 
-A bilingual weather companion designed for families living across countries and time zones.
+A bilingual, mobile-friendly weather companion for families living in different cities and time zones.
 
-Instead of acting like a standard weather app, Family Weather compares two family cities so everyone can quickly understand what the day feels like on both sides.
+## Version 3
 
-## Features
-
-- English / 中文 interface
-- Two-city Family Mode
-- English and Chinese city search
-- Local 24-hour time for both cities
-- Time-zone difference
-- Temperature difference
-- Current weather and daily rain probability
-- Clothing and umbrella advice for both cities
-- Plain-language family weather summary
-- Mobile-friendly Streamlit interface
-- Friendly error handling
+- Chinese-first interface
+- Two equal family locations rather than a child-centered design
+- Mobile-oriented layout
+- Useful first-run city defaults that can be edited
+- Accurate local 24-hour time using each city's IANA timezone
+- Time and temperature comparison
+- Weather summary
+- Umbrella and clothing advice for both sides
+- Chinese city-name Pinyin fallback
+- Open-Meteo weather and geocoding data
 
 ## Run locally
 
@@ -25,10 +22,6 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-## Data
+## License
 
-Weather and geocoding data are provided by Open-Meteo.
-
-## Status
-
-Version 2.1 — Balanced Family Mode with timezone-based live local time.
+MIT
