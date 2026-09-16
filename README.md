@@ -2,16 +2,16 @@
 
 A bilingual, mobile-friendly weather companion for families living in different cities and time zones.
 
-## Version 3
+## Version 3.1
 
 - Chinese-first interface
 - Two equal family locations rather than a child-centered design
 - Mobile-oriented layout
 - Useful first-run city defaults that can be edited
-- Accurate local 24-hour time using each city's IANA timezone
+- Accurate local date and 24-hour time using each city's IANA timezone
 - Time and temperature comparison
 - Weather summary
-- Umbrella and clothing advice for both sides
+- Umbrella and clothing advice for both sides with improved mobile alignment
 - Chinese city-name Pinyin fallback
 - Open-Meteo weather and geocoding data
 

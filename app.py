@@ -19,6 +19,7 @@ TEXT = {
         "empty": "请输入两个城市。",
         "not_found": "有一个城市没有找到，请检查城市名称。",
         "error": "暂时无法获取天气数据，请稍后重试。",
+        "local_date": "当地日期",
         "local_time": "当地时间",
         "temperature": "温度",
         "feels_like": "体感",
@@ -52,6 +53,7 @@ TEXT = {
         "empty": "Please enter both cities.",
         "not_found": "One of the cities could not be found.",
         "error": "Weather data is temporarily unavailable.",
+        "local_date": "Local date",
         "local_time": "Local time",
         "temperature": "Temperature",
         "feels_like": "Feels like",
@@ -89,12 +91,39 @@ div[data-testid="stMetric"] {
     padding: 12px;
 }
 div.stButton > button {border-radius: 12px; min-height: 3rem; font-weight: 600;}
+.advice-card {
+    background: rgba(128,128,128,.08);
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+.advice-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    line-height: 1.45;
+    margin: 5px 0;
+}
+.advice-icon {
+    display: inline-block;
+    width: 1.5rem;
+    flex: 0 0 1.5rem;
+    text-align: center;
+}
 @media (max-width: 640px) {
     .block-container {padding-left: 1rem; padding-right: 1rem;}
     h1 {font-size: 2rem;}
 }
 </style>
 """, unsafe_allow_html=True)
+
+def format_local_date(weather, language):
+    year, month, day = weather["local_date_iso"].split("-")
+    if language == "中文":
+        weekdays = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+        return f"{year}年{int(month)}月{int(day)}日 {weekdays[weather['weekday']]}"
+    weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    return f"{year}-{month}-{day} {weekdays[weather['weekday']]}"
+
 
 language = st.selectbox("语言 / Language", ["中文", "English"])
 t = TEXT[language]
@@ -135,6 +164,7 @@ if st.button(t["button"], type="primary", use_container_width=True):
                 st.markdown(f"### 🏠 {a['city']}")
                 st.caption(a["country"])
                 st.metric(t["temperature"], f"{a['temperature']} °C")
+                st.write(f"📅 **{t['local_date']}：** {format_local_date(a, language)}")
                 st.write(f"🕐 **{t['local_time']}：** {a['local_time']}")
                 st.write(f"🌡️ **{t['feels_like']}：** {a['feels_like']} °C")
                 st.write(f"🌤️ **{t['weather']}：** {aw}")
@@ -145,6 +175,7 @@ if st.button(t["button"], type="primary", use_container_width=True):
                 st.markdown(f"### 🌍 {b['city']}")
                 st.caption(b["country"])
                 st.metric(t["temperature"], f"{b['temperature']} °C")
+                st.write(f"📅 **{t['local_date']}：** {format_local_date(b, language)}")
                 st.write(f"🕐 **{t['local_time']}：** {b['local_time']}")
                 st.write(f"🌡️ **{t['feels_like']}：** {b['feels_like']} °C")
                 st.write(f"🌤️ **{t['weather']}：** {bw}")
@@ -168,9 +199,21 @@ if st.button(t["button"], type="primary", use_container_width=True):
             x, y = st.columns(2)
             with x:
                 st.markdown(f"**🏠 {a['city']}**")
-                st.info(f"☂️ **{t['umbrella']}：** {aa_u}\n\n👕 **{t['clothing']}：** {aa_c}")
+                st.markdown(
+                    f"""<div class="advice-card">
+                    <div class="advice-row"><span class="advice-icon">☂️</span><span><b>{t['umbrella']}：</b>{aa_u}</span></div>
+                    <div class="advice-row"><span class="advice-icon">👕</span><span><b>{t['clothing']}：</b>{aa_c}</span></div>
+                    </div>""",
+                    unsafe_allow_html=True,
+                )
             with y:
                 st.markdown(f"**🌍 {b['city']}**")
-                st.info(f"☂️ **{t['umbrella']}：** {bb_u}\n\n👕 **{t['clothing']}：** {bb_c}")
+                st.markdown(
+                    f"""<div class="advice-card">
+                    <div class="advice-row"><span class="advice-icon">☂️</span><span><b>{t['umbrella']}：</b>{bb_u}</span></div>
+                    <div class="advice-row"><span class="advice-icon">👕</span><span><b>{t['clothing']}：</b>{bb_c}</span></div>
+                    </div>""",
+                    unsafe_allow_html=True,
+                )
 
 st.caption("Weather data: Open-Meteo")

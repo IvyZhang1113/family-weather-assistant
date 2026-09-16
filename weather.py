@@ -74,7 +74,10 @@ def get_weather(city, language="中文"):
         current, daily = raw["current"], raw["daily"]
 
         timezone_name = raw.get("timezone", "UTC")
-        local_time = datetime.now(ZoneInfo(timezone_name)).strftime("%H:%M")
+        local_now = datetime.now(ZoneInfo(timezone_name))
+        local_time = local_now.strftime("%H:%M")
+        local_date_iso = local_now.strftime("%Y-%m-%d")
+        weekday = local_now.weekday()
 
         rain = daily.get("precipitation_probability_max", [0])
         rain = rain[0] if rain else 0
@@ -86,6 +89,8 @@ def get_weather(city, language="中文"):
                 "city": location.get("name", city),
                 "country": location.get("country", ""),
                 "local_time": local_time,
+                "local_date_iso": local_date_iso,
+                "weekday": weekday,
                 "timezone": timezone_name,
                 "utc_offset_seconds": raw.get("utc_offset_seconds", 0),
                 "temperature": current["temperature_2m"],
