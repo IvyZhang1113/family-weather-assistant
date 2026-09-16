@@ -1,0 +1,29 @@
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#272a36;background:#f7f8fc}
+*{box-sizing:border-box}body{margin:0;background:#f7f8fc}.app{max-width:720px;margin:auto;padding:28px 18px 70px}
+header h1{font-size:34px;margin:0 0 4px}header p{margin:0;color:#858996}.search-wrap{margin-top:28px;position:relative}.search-wrap label{display:block;font-weight:700;margin-bottom:9px}
+.search-box{display:flex;align-items:center;gap:10px;background:white;border:1px solid #e2e5ec;border-radius:17px;padding:0 15px;box-shadow:0 5px 18px rgba(30,35,50,.05)}
+.search-box input{width:100%;border:0;outline:0;background:transparent;padding:16px 0;font-size:17px}
+.suggestions{position:absolute;top:86px;left:0;right:0;background:white;border:1px solid #e2e5ec;border-radius:16px;box-shadow:0 15px 38px rgba(30,35,50,.14);overflow:hidden;z-index:20}
+.suggestion{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid #f0f1f4;background:white;padding:15px 17px;font-size:16px;cursor:pointer}.suggestion:last-child{border-bottom:0}.suggestion:hover{background:#f6f7fa}.no-result{padding:15px 17px;color:#858996}.hidden{display:none}
+.cities{display:grid;gap:15px;margin-top:24px}.card{background:white;border:1px solid #e5e7ed;border-radius:22px;padding:20px;box-shadow:0 5px 18px rgba(30,35,50,.04)}
+.card-top{display:flex;justify-content:space-between}.card h2{margin:0;font-size:24px}.country{color:#858996;margin-top:3px}.remove{border:0;background:#f1f2f5;border-radius:50%;width:34px;height:34px;font-size:19px;cursor:pointer}
+.datetime{margin:17px 0;color:#646977}.hero{display:flex;justify-content:space-between;align-items:end}.temp{font-size:48px;font-weight:750;line-height:1}.condition{text-align:right;font-size:17px}.condition span{color:#646977}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:19px}.metric{background:#f7f8fb;border-radius:14px;padding:12px}.metric small{display:block;color:#858996;margin-bottom:5px}.metric b{font-size:15px}
+.advice{margin-top:16px;border-top:1px solid #eef0f4;padding-top:10px}.advice div{display:flex;gap:9px;padding:7px 2px;line-height:1.45}.advice div>span{flex:1}.empty{text-align:center;color:#8a8e9b;padding:55px 20px}.error{color:#b42318}
+@media(max-width:520px){.app{padding:22px 14px 55px}header h1{font-size:30px}.metrics{grid-template-columns:1fr 1fr}.temp{font-size:42px}}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+#lang{border:1px solid #e2e5ec;background:#fff;border-radius:12px;padding:9px 10px;font-size:14px}
+.metrics .metric:last-child:nth-child(5){grid-column:span 2}
+.compare{margin-top:24px;background:#fff;border:1px solid #e5e7ed;border-radius:22px;padding:20px}
+.compare h2{margin:0 0 15px}.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px}
+.compare-city{background:#f7f8fb;border-radius:14px;padding:13px}.compare-city b,.compare-city span,.compare-city small{display:block}.compare-city span{font-size:25px;font-weight:700;margin:6px 0}.compare-city small{color:#858996}
+.diffs{margin-top:14px;border-top:1px solid #eef0f4;padding-top:8px}.diffs div{display:flex;justify-content:space-between;gap:15px;padding:8px 2px}.diffs span{text-align:right;color:#646977}
+
+.card-actions{display:flex;gap:6px;align-items:center}.move{border:0;background:#f1f2f5;border-radius:10px;width:32px;height:32px;font-size:16px;cursor:pointer;color:#555b69}
+.temp-block{display:flex;align-items:center;gap:10px}.weather-icon{font-size:38px;line-height:1}.card{transition:transform .15s ease}
+@media(max-width:520px){
+ .card{padding:17px;border-radius:20px}.datetime{font-size:14px;margin:14px 0}.weather-icon{font-size:34px}
+ .metrics{gap:7px}.metric{padding:10px}.metric small{font-size:12px}.metric b{font-size:14px}
+ .advice{font-size:14px}.compare{padding:17px}.diffs div{display:block}.diffs span{display:block;text-align:left;margin-top:4px}
+ .move{width:30px;height:30px}
+}

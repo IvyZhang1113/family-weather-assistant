@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "家庭天气 Family Weather",
+  "short_name": "家庭天气",
+  "description": "多城市家庭天气、空气质量与生活建议",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8fc",
+  "theme_color": "#f7f8fc",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+  ]
+}
